@@ -14,7 +14,21 @@ export interface ICosts {
 	costs: ICostItem[]
 }
 
+
+//Типизация props.children и передаваемых стилей в пропс
 export interface WrapperProps {
 	children: ReactNode
 	className?: CSSProperties | string
+}
+
+
+//Типизация функции диспатч хука useState, которую передаем во вложенный компонент
+export interface IFuncButton {
+	setNum: React.Dispatch<React.SetStateAction<number>>
+}
+
+export interface ICostForm {
+	name: string
+	amount: string
+	date: string
 }

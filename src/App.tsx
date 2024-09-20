@@ -1,5 +1,6 @@
 // import CostItem from './components/CostItem/CostItem'
 import Costs from './components/Costs/Costs'
+import NewCost from './components/NewCost/NewCost'
 import { ICostItem } from './types'
 
 const costs: ICostItem[] = [
@@ -22,7 +23,10 @@ const costs: ICostItem[] = [
 
 function App() {
 	return (
-		<Costs costs={costs}/>
+		<>
+			<NewCost />
+			<Costs costs={costs} />
+		</>
 	)
 }
 
