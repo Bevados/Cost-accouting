@@ -5,6 +5,7 @@ export interface ICostDate {
 }
 
 export interface ICostItem {
+	id?: string
 	date: Date
 	description: string
 	amount: number
@@ -31,4 +32,13 @@ export interface ICostForm {
 	name: string
 	amount: string
 	date: string
+}
+
+export interface IAddCostHandler {
+	addCostHandler: (cost: ICostForm) => void
+}
+
+export interface ICostFilterProps {
+	onChangeYear: (year: string) => void
+	year: string
 }

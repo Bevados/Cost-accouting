@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { ICostForm } from '../../types'
 import './CostForm.css'
+import { IAddCostHandler } from '../../types'
 
 const defaultStateUserInput: ICostForm = {
 	name: '',
@@ -8,7 +9,7 @@ const defaultStateUserInput: ICostForm = {
 	date: ''
 }
 
-const CostForm = () => {
+const CostForm: React.FC<IAddCostHandler> = ({ addCostHandler }) => {
 	const [userInput, setUserInput] = useState(defaultStateUserInput)
 
 	const nameChangeHadler = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -33,12 +34,11 @@ const CostForm = () => {
 	}
 
 	function submitHandler(e: React.FormEvent<HTMLFormElement>) {
-		e.preventDefault();
+		e.preventDefault()
 
-		userInput.date = new Date(userInput.date).toLocaleDateString('ru-Ru')
+		// userInput.date = new Date(userInput.date).toLocaleDateString('ru-Ru')
 
-		const newDataCosts = userInput;
-		console.log(newDataCosts)
+		addCostHandler(userInput)
 		setUserInput(defaultStateUserInput)
 	}
 
