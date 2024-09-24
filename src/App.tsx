@@ -2,9 +2,9 @@
 import { useState } from 'react'
 import Costs from './components/Costs/Costs'
 import NewCost from './components/NewCost/NewCost'
-import { ICostItem, ICostForm } from './types'
+import { ICostItem } from './types'
 
-const costs: ICostItem[] = [
+const INITIAL_COSTS: ICostItem[] = [
 	{
 		id: 'c1',
 		date: new Date(2021, 2, 12),
@@ -26,26 +26,16 @@ const costs: ICostItem[] = [
 ]
 
 function App() {
-	const [costsState, setCosts] = useState<ICostItem[]>(costs)
+	const [costs, setCosts] = useState<ICostItem[]>(INITIAL_COSTS)
 
-	const addCostHandler = (cost: ICostForm) => {
-		const id = (Math.random() * 100000).toFixed(0).toString()
-
-		const newCost = {
-			id: id,
-			date: new Date(cost.date),
-			description: cost.name,
-			amount: Number(cost.amount)
-		}
-		setCosts(prew => {
-			return [...prew, newCost ]
-		})
+	const addCostHandler = (cost: ICostItem) => {
+		setCosts(prewCosts => [...prewCosts, cost])
 	}
 
 	return (
 		<>
 			<NewCost addCostHandler={addCostHandler} />
-			<Costs costs={costsState} />
+			<Costs costs={costs} />
 		</>
 	)
 }

@@ -1,4 +1,4 @@
-import { ReactNode, CSSProperties } from 'react'
+import { ReactNode, CSSProperties, Dispatch } from 'react'
 
 export interface ICostDate {
 	date: Date
@@ -22,12 +22,6 @@ export interface WrapperProps {
 	className?: CSSProperties | string
 }
 
-
-//Типизация функции диспатч хука useState, которую передаем во вложенный компонент
-export interface IFuncButton {
-	setNum: React.Dispatch<React.SetStateAction<number>>
-}
-
 export interface ICostForm {
 	name: string
 	amount: string
@@ -35,10 +29,22 @@ export interface ICostForm {
 }
 
 export interface IAddCostHandler {
-	addCostHandler: (cost: ICostForm) => void
+	addCostHandler: (cost: ICostItem) => void
+}
+
+export interface ICostFormProps extends IAddCostHandler {
+	addCostHandler: (cost: ICostItem) => void
+	closeFormCost: () => void
 }
 
 export interface ICostFilterProps {
 	onChangeYear: (year: string) => void
 	year: string
+}
+
+export interface IButtonProps {
+	children: ReactNode
+	type: 'submit' | 'button'
+	onClickHandler?: () => void
+	// onClickHandler?: Dispatch<React.SetStateAction<boolean>>
 }

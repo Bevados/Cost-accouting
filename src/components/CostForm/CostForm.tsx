@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { ICostForm } from '../../types'
 import './CostForm.css'
-import { IAddCostHandler } from '../../types'
+import { ICostFormProps } from '../../types'
+import Button from '../../ui/Button/Button'
 
 const defaultStateUserInput: ICostForm = {
 	name: '',
@@ -9,7 +10,10 @@ const defaultStateUserInput: ICostForm = {
 	date: ''
 }
 
-const CostForm: React.FC<IAddCostHandler> = ({ addCostHandler }) => {
+const CostForm: React.FC<ICostFormProps> = ({
+	addCostHandler,
+	closeFormCost
+}) => {
 	const [userInput, setUserInput] = useState(defaultStateUserInput)
 
 	const nameChangeHadler = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -36,10 +40,18 @@ const CostForm: React.FC<IAddCostHandler> = ({ addCostHandler }) => {
 	function submitHandler(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault()
 
-		// userInput.date = new Date(userInput.date).toLocaleDateString('ru-Ru')
+		const id = (Math.random() * 100000).toFixed(0).toString()
 
-		addCostHandler(userInput)
+		const newCost = {
+			id: id,
+			date: new Date(userInput.date),
+			description: userInput.name,
+			amount: Number(userInput.amount)
+		}
+
+		addCostHandler(newCost)
 		setUserInput(defaultStateUserInput)
+		closeFormCost()
 	}
 
 	return (
@@ -77,7 +89,10 @@ const CostForm: React.FC<IAddCostHandler> = ({ addCostHandler }) => {
 					/>
 				</div>
 				<div className='new-cost__actions'>
-					<button type='submit'>Добавить расход</button>
+					<Button type='submit'>Добавить расход</Button>
+					<Button type='button' onClickHandler={closeFormCost}>
+						Отмена
+					</Button>
 				</div>
 			</div>
 		</form>

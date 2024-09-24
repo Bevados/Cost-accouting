@@ -1,7 +1,11 @@
-import { IFuncButton } from "../../types"
+import { IButtonProps } from '../../types'
 
-const Button: React.FC<IFuncButton> = ({setNum}) => {
-	return <button onClick={() => setNum((prev: number) => prev + 1)}>Плюс</button>
+const Button: React.FC<IButtonProps> = ({ children, type, onClickHandler }) => {
+	return (
+		<button type={type} onClick={onClickHandler}>
+			{children}
+		</button>
+	)
 }
 
 export default Button
