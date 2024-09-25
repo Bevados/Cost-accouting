@@ -1,4 +1,4 @@
-import { ReactNode, CSSProperties, Dispatch } from 'react'
+import { ReactNode, CSSProperties } from 'react'
 
 export interface ICostDate {
 	date: Date
@@ -47,4 +47,16 @@ export interface IButtonProps {
 	type: 'submit' | 'button'
 	onClickHandler?: () => void
 	// onClickHandler?: Dispatch<React.SetStateAction<boolean>>
+}
+
+interface IDataSets {
+	label: string
+	value: number
+}
+export interface IDiagramProps {
+	dataSets: IDataSets[]
+}
+
+export interface IDiagramBarProps extends IDataSets {
+	maxValue: number
 }
