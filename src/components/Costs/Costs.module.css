@@ -3,5 +3,6 @@
 	padding: 1rem;
 	width: 70rem;
 	max-width: 95%;
+	box-sizing: border-box;
 	background-color: #aac4d1;
 }

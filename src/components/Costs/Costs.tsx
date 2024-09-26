@@ -1,12 +1,12 @@
 import { useState } from 'react'
+import Card from '../../ui/Card/Card'
 import CostFilter from '../CostFilter/CostFilter'
 import CostList from '../CostList/CostList'
-import Card from '../../ui/Card/Card'
-import { ICosts } from '../../types'
-import './Costs.css'
 import CostsDiagram from '../CostsDiagram/CostsDiagram'
+import { ICosts } from '../../types'
+import styles from './Costs.module.css'
 
-const Costs: React.FC<ICosts> = ({ costs }) => {
+const Costs = ({ costs }: ICosts) => {
 	const [year, setYear] = useState<string>('2021')
 
 	function onChangeYear(year: string) {
@@ -18,7 +18,7 @@ const Costs: React.FC<ICosts> = ({ costs }) => {
 	)
 
 	return (
-		<Card className='costs'>
+		<Card className={styles.costs}>
 			<CostFilter onChangeYear={onChangeYear} year={year} />
 			<CostsDiagram costs={filteredCosts} />
 			<CostList costs={filteredCosts} />

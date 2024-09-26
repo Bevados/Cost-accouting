@@ -1,0 +1,21 @@
+.diagram {
+	padding: 1rem;
+	border-radius: 12px;
+	background-color: #ebc137;
+	text-align: center;
+	display: flex;
+	justify-content: space-around;
+	height: 10rem;
+}
+
+@media (max-width: 410px) {
+	.diagram {
+		padding: 0.5rem;
+		border-radius: 12px;
+		background-color: #ebc137;
+		text-align: center;
+		display: flex;
+		justify-content: space-around;
+		height: 10rem;
+	}
+}

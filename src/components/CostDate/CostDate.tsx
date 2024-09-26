@@ -1,7 +1,7 @@
 import { ICostDate } from '../../types'
-import './CostDate.css'
+import styles from './CostDate.module.css'
 
-const CostDate: React.FC<ICostDate> = ({ date }) => {
+const CostDate = ({ date }: ICostDate) => {
 	const month = date.toLocaleString('ru-Ru', {
 		month: 'long'
 	})
@@ -11,10 +11,10 @@ const CostDate: React.FC<ICostDate> = ({ date }) => {
 	})
 
 	return (
-		<div className='cost-date'>
-			<div className='cost-date__month'>{month}</div>
-			<div className='cost-date__year'>{year}</div>
-			<div className='cost-date__day'>{day}</div>
+		<div className={styles['cost-date']}>
+			<div className={styles['cost-date__month']}>{month}</div>
+			<div className={styles['cost-date__year']}>{year}</div>
+			<div className={styles['cost-date__day']}>{day}</div>
 		</div>
 	)
 }

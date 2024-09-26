@@ -1,14 +1,14 @@
 import { ICostFilterProps } from '../../types'
-import './CostFilter.css'
+import styles from './CostFilter.module.css'
 
-const CostFilter: React.FC<ICostFilterProps> = ({ onChangeYear, year }) => {
+const CostFilter = ({ onChangeYear, year }: ICostFilterProps) => {
 	const yearChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
 		onChangeYear(e.target.value)
 	}
 
 	return (
-		<div className='costs-filter'>
-			<div className='costs-filter__control '>
+		<div className={styles['costs-filter']}>
+			<div className={styles['costs-filter__control']}>
 				<label>Выбор по году</label>
 				<select value={year} onChange={yearChangeHandler}>
 					<option value='2024'>2024</option>

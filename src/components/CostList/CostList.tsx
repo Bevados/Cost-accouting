@@ -1,14 +1,18 @@
 import CostItem from '../CostItem/CostItem'
 import { ICosts } from '../../types'
-import './CostList.css'
+import styles from './CostList.module.css'
 
-const CostList: React.FC<ICosts> = ({ costs }) => {
+const CostList = ({ costs }: ICosts) => {
 	if (costs.length === 0) {
-		return <h2 className='cost-list__fallback'>В этом году расходов нет</h2>
+		return (
+			<h2 className={styles['cost-list__fallback']}>
+				В этом году расходов нет
+			</h2>
+		)
 	}
 
 	return (
-		<ul className='cost-list'>
+		<ul className={styles['cost-list']}>
 			{costs.map(cost => (
 				<li key={cost.id}>
 					<CostItem

@@ -1,0 +1,50 @@
+.new-cost__controls {
+	margin-bottom: 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	text-align: left;
+}
+
+.new-cost__controls-wrap {
+	width: 100%;
+	overflow: hidden;
+}
+
+.new-cost__controls label {
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+	display: block;
+}
+
+.new-cost__controls input {
+	padding: 0.5rem;
+	width: 100%;
+	font: inherit;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+.new-cost__actions {
+	display: flex;
+	width: 100%;
+	text-align: left;
+}
+
+.new-cost__actions > * {
+	flex: 1 1 auto;
+}
+
+@media (max-width: 380px) {
+	.new-cost__actions {
+		flex-wrap: wrap;
+    gap: 1rem;
+	}
+}
+
+@media (min-width: 600px) {
+	.new-cost__actions > * {
+		flex: 0 0 auto;
+	}
+}

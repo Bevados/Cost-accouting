@@ -1,6 +1,6 @@
 import { IButtonProps } from '../../types'
 
-const Button: React.FC<IButtonProps> = ({ children, type, onClickHandler }) => {
+const Button = ({ children, type, onClickHandler }: IButtonProps) => {
 	return (
 		<button type={type} onClick={onClickHandler}>
 			{children}

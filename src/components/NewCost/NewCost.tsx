@@ -1,11 +1,11 @@
 import Card from '../../ui/Card/Card'
-import CostForm from '../CostForm/CostForm'
 import Button from '../../ui/Button/Button'
+import CostForm from '../CostForm/CostForm'
 import { IAddCostHandler } from '../../types'
-import './NewCost.css'
 import { useState } from 'react'
+import styles from './NewCost.module.css'
 
-const NewCost: React.FC<IAddCostHandler> = ({ addCostHandler }) => {
+const NewCost = ({ addCostHandler }: IAddCostHandler) => {
 	const [newCost, setNewCost] = useState<boolean>(false)
 
 	function openFormCost() {
@@ -17,7 +17,7 @@ const NewCost: React.FC<IAddCostHandler> = ({ addCostHandler }) => {
 	}
 
 	return (
-		<Card className='new-cost'>
+		<Card className={styles['new-cost']}>
 			{!newCost && (
 				<Button onClickHandler={openFormCost} type='button'>
 					Добавить новый расход

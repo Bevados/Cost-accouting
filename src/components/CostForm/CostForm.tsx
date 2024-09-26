@@ -1,8 +1,7 @@
 import { useState } from 'react'
-import { ICostForm } from '../../types'
-import './CostForm.css'
-import { ICostFormProps } from '../../types'
 import Button from '../../ui/Button/Button'
+import { ICostForm, ICostFormProps } from '../../types'
+import styles from './CostForm.module.css'
 
 const defaultStateUserInput: ICostForm = {
 	name: '',
@@ -10,10 +9,7 @@ const defaultStateUserInput: ICostForm = {
 	date: ''
 }
 
-const CostForm: React.FC<ICostFormProps> = ({
-	addCostHandler,
-	closeFormCost
-}) => {
+const CostForm = ({ addCostHandler, closeFormCost }: ICostFormProps) => {
 	const [userInput, setUserInput] = useState(defaultStateUserInput)
 
 	const nameChangeHadler = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -56,8 +52,8 @@ const CostForm: React.FC<ICostFormProps> = ({
 
 	return (
 		<form onSubmit={submitHandler}>
-			<div className='new-cost__controls'>
-				<div className='new-cost__control'>
+			<div className={styles['new-cost__controls']}>
+				<div className={styles['new-cost__controls-wrap']}>
 					<label htmlFor='name'>Название</label>
 					<input
 						id='name'
@@ -66,7 +62,7 @@ const CostForm: React.FC<ICostFormProps> = ({
 						value={userInput.name}
 					/>
 				</div>
-				<div className='new-cost__control'>
+				<div className={styles['new-cost__controls-wrap']}>
 					<label htmlFor='sum'>Сумма</label>
 					<input
 						id='sum'
@@ -77,7 +73,7 @@ const CostForm: React.FC<ICostFormProps> = ({
 						value={userInput.amount}
 					/>
 				</div>
-				<div className='new-cost__control'>
+				<div className={styles['new-cost__controls-wrap']}>
 					<label htmlFor='date'>Дата</label>
 					<input
 						id='date'
@@ -88,7 +84,7 @@ const CostForm: React.FC<ICostFormProps> = ({
 						value={userInput.date}
 					/>
 				</div>
-				<div className='new-cost__actions'>
+				<div className={styles['new-cost__actions']}>
 					<Button type='submit'>Добавить расход</Button>
 					<Button type='button' onClickHandler={closeFormCost}>
 						Отмена

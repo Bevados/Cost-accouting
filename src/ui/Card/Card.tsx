@@ -1,10 +1,8 @@
 import { WrapperProps } from '../../types'
-import './Card.css'
+import styles from './Card.module.css'
 
-const Card: React.FC<WrapperProps> = ({ children, className }) => {
-	const classes = 'card' + ' ' + className
-
-	return <div className={classes}>{children}</div>
+const Card = ({ children, className }: WrapperProps) => {
+	return <div className={`${styles.card} ${className}`}>{children}</div>
 }
 
 export default Card
