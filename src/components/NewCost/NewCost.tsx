@@ -1,11 +1,10 @@
 import Card from '../../ui/Card/Card'
 import Button from '../../ui/Button/Button'
 import CostForm from '../CostForm/CostForm'
-import { IAddCostHandler } from '../../types'
 import { useState } from 'react'
 import styles from './NewCost.module.css'
 
-const NewCost = ({ addCostHandler }: IAddCostHandler) => {
+const NewCost = () => {
 	const [newCost, setNewCost] = useState<boolean>(false)
 
 	function openFormCost() {
@@ -26,7 +25,6 @@ const NewCost = ({ addCostHandler }: IAddCostHandler) => {
 			{newCost && (
 				<CostForm
 					closeFormCost={closeFormCost}
-					addCostHandler={addCostHandler}
 				/>
 			)}
 		</Card>

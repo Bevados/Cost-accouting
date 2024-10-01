@@ -1,8 +1,8 @@
 import { IButtonProps } from '../../types'
 
-const Button = ({ children, type, onClickHandler }: IButtonProps) => {
+const Button = ({ children, type, onClickHandler, disabled }: IButtonProps) => {
 	return (
-		<button type={type} onClick={onClickHandler}>
+		<button type={type} onClick={onClickHandler} disabled={disabled}>
 			{children}
 		</button>
 	)
