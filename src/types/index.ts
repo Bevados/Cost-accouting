@@ -32,8 +32,7 @@ export interface IAddCostHandler {
 	addCostHandler: (cost: ICostItem) => void
 }
 
-export interface ICostFormProps extends IAddCostHandler {
-	addCostHandler: (cost: ICostItem) => void
+export interface ICostFormProps {
 	closeFormCost: () => void
 }
 
@@ -46,7 +45,7 @@ export interface IButtonProps {
 	children: ReactNode
 	type: 'submit' | 'button'
 	onClickHandler?: () => void
-	// onClickHandler?: Dispatch<React.SetStateAction<boolean>>
+	disabled?: boolean
 }
 
 interface IDataSets {
@@ -59,4 +58,8 @@ export interface IDiagramProps {
 
 export interface IDiagramBarProps extends IDataSets {
 	maxValue: number
+}
+
+export interface ApolloProviderProps {
+	children: ReactNode
 }
